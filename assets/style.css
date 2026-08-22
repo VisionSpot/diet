@@ -1,0 +1,322 @@
+/* =========================================================
+   خوراک آرا | KHORAK ARA (احمدی دایت)
+   Modern Persian RTL Nutrition & Health Platform Styles
+   Fully Vanilla CSS + Tailwind CDN compatible
+   Deployment-ready for GitHub Pages Drag & Drop
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+:root {
+  --primary: #012d1d;
+  --primary-container: #1b4332;
+  --on-primary: #ffffff;
+  --secondary: #0e6c4a;
+  --secondary-container: #a0f4c8;
+  --on-secondary: #ffffff;
+  --accent: #d8f3dc;
+  --accent-gold: #d4af37;
+  --background: #f4fafd;
+  --surface: #ffffff;
+  --surface-low: #eef5f7;
+  --surface-variant: #dde4e6;
+  --on-background: #161d1f;
+  --on-surface-variant: #414844;
+  --outline: #717973;
+  --outline-variant: #c1c8c2;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 30px 40px -15px rgba(1, 45, 29, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+  text-align: right;
+  background-color: var(--background);
+  color: var(--on-background);
+}
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background-color: var(--background);
+  color: var(--on-background);
+  line-height: 1.7;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Material Symbols alignment fix */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 40px -12px rgba(1, 45, 29, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.glass-card-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 50px -15px rgba(1, 45, 29, 0.09), 0 2px 6px rgba(0, 0, 0, 0.03);
+  border-color: rgba(160, 244, 200, 0.8);
+}
+
+.glass-header {
+  background: rgba(244, 250, 253, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(221, 228, 230, 0.6);
+}
+
+/* Background Ambient Orbs */
+.bg-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 85% 15%, rgba(160, 244, 200, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(206, 233, 211, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(244, 250, 253, 0.6) 0%, transparent 100%);
+}
+
+/* Input Fields */
+.premium-input {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--outline-variant);
+  border-radius: 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.premium-input:focus-within {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 4px rgba(14, 108, 74, 0.12);
+}
+
+/* Range Slider Styling */
+input[type="range"].custom-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #dde4e6;
+  border-radius: 9999px;
+  outline: none;
+  transition: background 0.2s;
+}
+
+input[type="range"].custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #1b4332;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(1, 45, 29, 0.3);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].custom-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #0e6c4a;
+}
+
+/* Stepper Transitions */
+.step-container {
+  display: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.step-container.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4fafd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c8c2;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #85d7ad;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(1, 45, 29, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-container);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(1, 45, 29, 0.22);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-outline:hover {
+  background-color: rgba(1, 45, 29, 0.05);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-container);
+  color: var(--primary);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent);
+}
+
+/* Gold Pro Badge */
+.gold-pro-border {
+  border: 2px solid #d4af37;
+  position: relative;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(254, 250, 235, 0.8) 100%);
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Toast Notifications */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  background: #012d1d;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: slideInToast 0.3s ease forwards;
+  max-width: 360px;
+}
+
+@keyframes slideInToast {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Pulse animation for active step */
+@keyframes pulseGreen {
+  0% {
+    box-shadow: 0 0 0 0 rgba(116, 198, 157, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(116, 198, 157, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(116, 198, 157, 0);
+  }
+}
+
+.pulse-step {
+  animation: pulseGreen 2s infinite;
+}
+
+/* Print Friendly */
+@media print {
+  body {
+    background: #ffffff;
+  }
+  .glass-header, footer, .no-print {
+    display: none !important;
+  }
+}
