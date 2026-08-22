@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خوراک آرا | پلتفرم تخصصی رژیم و تغذیه هوشمند</title>
+  <meta name="description" content="دریافت برنامه غذایی شخصی‌سازی‌شده و علمی متناسب با سبک زندگی شما با پشتیبانی تخصصی متخصصین تغذیه." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#012d1d',
+            'primary-container': '#1b4332',
+            secondary: '#0e6c4a',
+            'secondary-container': '#a0f4c8',
+            accent: '#d8f3dc',
+            background: '#f4fafd',
+            surface: '#ffffff',
+            'surface-variant': '#dde4e6',
+            'on-surface-variant': '#414844',
+          },
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+          },
+          borderRadius: {
+            '2xl': '1.5rem',
+            '3xl': '2.5rem',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-background text-[#161d1f] font-vazir min-h-screen flex flex-col selection:bg-secondary-container selection:text-primary">
+  <!-- Subtle Ambient Background -->
+  <div class="bg-ambient"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="glass-header sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      
+      <!-- Right: Brand Logo -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-2xl lg:text-3xl font-black text-primary tracking-tight hover:opacity-90 transition-opacity">
+          خوراک آرا
+        </a>
+      </div>
+
+      <!-- Center: Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-on-surface-variant">
+        <a href="index.html" class="text-primary font-bold relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-primary after:rounded-full">
+          صفحه اصلی
+        </a>
+        <a href="products.html" class="hover:text-primary transition-colors py-1">
+          رژیم‌های غذایی
+        </a>
+        <a href="assessment.html" class="hover:text-primary transition-colors py-1 flex items-center gap-1">
+          <span>ارزیابی هوشمند</span>
+          <span class="text-[10px] bg-secondary-container text-primary font-bold px-1.5 py-0.5 rounded-full">جدید</span>
+        </a>
+        <a href="dashboard.html" class="hover:text-primary transition-colors py-1">
+          پنل کاربری
+        </a>
+        <a href="about.html" class="hover:text-primary transition-colors py-1">
+          درباره ما
+        </a>
+        <a href="contact.html" class="hover:text-primary transition-colors py-1">
+          تماس با ما
+        </a>
+      </nav>
+
+      <!-- Left: CTA Button & Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="assessment.html" class="hidden sm:inline-flex bg-primary text-white hover:bg-primary-container px-6 py-3 rounded-full text-sm font-bold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5">
+          دریافت رژیم شخصی من
+        </a>
+        
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobile-menu-btn" aria-label="منوی سایت" class="md:hidden w-10 h-10 rounded-full flex items-center justify-center bg-surface border border-outline-variant text-primary hover:bg-accent transition-colors">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Navigation -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-primary/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-surface p-6 shadow-2xl flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-surface-variant">
+          <span class="text-2xl font-black text-primary">خوراک آرا</span>
+          <button id="close-mobile-menu" class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-variant text-primary">
+            <span class="material-symbols-outlined text-lg">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 mt-6 text-base font-medium">
+          <a href="index.html" class="text-primary font-bold bg-accent/40 px-4 py-2.5 rounded-xl">صفحه اصلی</a>
+          <a href="products.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">رژیم‌های غذایی</a>
+          <a href="assessment.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">ارزیابی هوشمند بدن</a>
+          <a href="dashboard.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">پنل کاربری من</a>
+          <a href="about.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">درباره ما</a>
+          <a href="contact.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">تماس با ما</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-surface-variant">
+        <a href="assessment.html" class="w-full btn-primary text-center">
+          دریافت رژیم شخصی من
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Area -->
+  <main class="flex-grow">
+    
+    <!-- Hero Section (Exact Stitch Screen 1 Layout) -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-16 lg:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left in RTL (Hero Image Card with Floating Badges) -->
+        <div class="lg:col-span-6 order-2 lg:order-1 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Main Hero Card -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-surface border border-white/60 aspect-[4/3.8] group">
+              <img 
+                src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=85" 
+                alt="بشقاب سالاد مغذی و رژیمی خوراک آرا" 
+                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                referrerpolicy="no-referrer"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+
+            <!-- Floating Badge 1: Top Right (برنامه کاملاً شخصی‌سازی‌شده) -->
+            <div class="absolute top-6 right-6 glass-panel rounded-2xl p-3 pr-4 shadow-lg flex items-center gap-3 border border-white/80 animate-fade-in">
+              <div class="w-9 h-9 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[20px] font-bold">verified</span>
+              </div>
+              <div class="text-right">
+                <p class="text-xs lg:text-sm font-bold text-primary">برنامه کاملاً شخصی‌سازی‌شده</p>
+                <p class="text-[11px] text-on-surface-variant">مبتنی بر آنالیز دقیق بدنی</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2: Bottom Left (پشتیبانی تخصصی) -->
+            <div class="absolute bottom-6 left-6 glass-panel rounded-2xl p-3 pl-4 shadow-lg flex items-center gap-3 border border-white/80 animate-fade-in">
+              <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-secondary-container">
+                <span class="material-symbols-outlined text-[22px]">support_agent</span>
+              </div>
+              <div class="text-right">
+                <p class="text-xs lg:text-sm font-bold text-primary">پشتیبانی تخصصی</p>
+                <p class="text-[11px] text-on-surface-variant">پاسخگویی سریع ۲۴/۷</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right in RTL (Hero Typography & Actions) -->
+        <div class="lg:col-span-6 order-1 lg:order-2 text-right">
+          
+          <!-- Category Chip -->
+          <div class="inline-flex items-center gap-2 bg-secondary-container/60 text-primary font-bold text-xs lg:text-sm px-4 py-1.5 rounded-full mb-6 border border-secondary-container">
+            <span>علمی، دقیق، موثر</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-primary leading-[1.3] lg:leading-[1.25] tracking-tight mb-6">
+            رژیم مناسب تو، فقط برای تو
+          </h1>
+
+          <!-- Body Subtitle -->
+          <p class="text-base sm:text-lg text-on-surface-variant leading-relaxed max-w-xl mb-10 font-normal">
+            با یک برنامه غذایی شخصی‌سازی‌شده، علمی و متناسب با سبک زندگی خودت، مسیر سلامتی و تناسب اندامت را شروع کن.
+          </p>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="assessment.html" class="btn-primary text-sm lg:text-base px-8 py-4 shadow-lg hover:shadow-xl">
+              دریافت رژیم شخصی
+            </a>
+            <a href="products.html" class="btn-outline text-sm lg:text-base px-8 py-4">
+              مشاهده خدمات
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Stats Section (Exact Stitch Screen 1 3-Column Layout) -->
+    <section class="border-t border-b border-surface-variant/80 bg-surface/50 backdrop-blur-sm py-12">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x md:divide-x-reverse divide-surface-variant">
+          
+          <!-- Stat 1: ۱۰+ سال -->
+          <div class="text-center md:px-8 py-4">
+            <h3 class="text-3xl lg:text-4xl font-extrabold text-primary mb-2 tracking-tight">
+              ۱۰+ سال
+            </h3>
+            <p class="text-sm lg:text-base text-on-surface-variant font-medium">
+              تجربه تخصصی تغذیه و رژیم‌درمانی
+            </p>
+          </div>
+
+          <!-- Stat 2: ۵۰+ هزار -->
+          <div class="text-center md:px-8 py-4">
+            <h3 class="text-3xl lg:text-4xl font-extrabold text-primary mb-2 tracking-tight">
+              ۵۰+ هزار
+            </h3>
+            <p class="text-sm lg:text-base text-on-surface-variant font-medium">
+              مراجعه‌کننده موفق و رضایت‌بخش
+            </p>
+          </div>
+
+          <!-- Stat 3: ۱۰۰+ هزار -->
+          <div class="text-center md:px-8 py-4">
+            <h3 class="text-3xl lg:text-4xl font-extrabold text-primary mb-2 tracking-tight">
+              ۱۰۰+ هزار
+            </h3>
+            <p class="text-sm lg:text-base text-on-surface-variant font-medium">
+              برنامه غذایی تنظیم شده بر پایه علم
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Spotlight / How Khorak Ara Works -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-12 py-20">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-secondary font-bold text-sm tracking-wide">مسیر همراهی ما با شما</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-primary mt-2 mb-4">
+          سه گام ساده تا رسیدن به تناسب اندام پایدار
+        </h2>
+        <p class="text-on-surface-variant text-sm sm:text-base">
+          بدون محرومیت‌های غذایی طاقت‌فرسا و با استفاده از اصول دقیق پزشکی و بیوشیمی بدن
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Step Card 1 -->
+        <div class="glass-panel rounded-3xl p-8 text-right relative overflow-hidden glass-card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-primary mb-6">
+            <span class="material-symbols-outlined text-3xl">analytics</span>
+          </div>
+          <span class="text-xs font-bold text-secondary uppercase">گام اول</span>
+          <h3 class="text-xl font-bold text-primary mt-1 mb-3">ارزیابی هوشمند بدنی</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+            قد، وزن، سن، فعالیت روزانه و عادات غذایی شما بررسی شده و شاخص‌های بیولوژیکی محاسبه می‌گردد.
+          </p>
+          <a href="assessment.html" class="text-xs font-bold text-secondary flex items-center gap-1 hover:underline">
+            <span>شروع تست رایگان</span>
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+          </a>
+        </div>
+
+        <!-- Step Card 2 -->
+        <div class="glass-panel rounded-3xl p-8 text-right relative overflow-hidden glass-card-hover border-secondary-container">
+          <div class="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-secondary-container mb-6">
+            <span class="material-symbols-outlined text-3xl">restaurant_menu</span>
+          </div>
+          <span class="text-xs font-bold text-secondary uppercase">گام دوم</span>
+          <h3 class="text-xl font-bold text-primary mt-1 mb-3">طراحی رژیم اختصاصی</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+            تیم متخصصین با در نظر گرفتن سفره غذایی ایرانی، برنامه کالری‌شمار و درشت‌مغذی شما را تدوین می‌کنند.
+          </p>
+          <a href="products.html" class="text-xs font-bold text-secondary flex items-center gap-1 hover:underline">
+            <span>مشاهده رژیم‌ها</span>
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+          </a>
+        </div>
+
+        <!-- Step Card 3 -->
+        <div class="glass-panel rounded-3xl p-8 text-right relative overflow-hidden glass-card-hover">
+          <div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-primary mb-6">
+            <span class="material-symbols-outlined text-3xl">forum</span>
+          </div>
+          <span class="text-xs font-bold text-secondary uppercase">گام سوم</span>
+          <h3 class="text-xl font-bold text-primary mt-1 mb-3">پشتیبانی و پیگیری تلگرامی</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+            در تمام طول دوره از طریق پشتیبانی اختصاصی تلگرام به متخصص تغذیه متصل هستید و وضعیتتان رصد می‌شود.
+          </p>
+          <button onclick="openTelegramOrder()" class="text-xs font-bold text-secondary flex items-center gap-1 hover:underline">
+            <span>ارتباط در تلگرام</span>
+            <span class="material-symbols-outlined text-sm">send</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Quick Teaser / Banner -->
+    <section class="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+      <div class="bg-primary text-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
+        <div class="absolute -left-20 -bottom-20 w-96 h-96 rounded-full bg-secondary opacity-30 blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 max-w-2xl text-right">
+          <span class="inline-block bg-secondary-container text-primary font-bold text-xs px-3 py-1 rounded-full mb-4">مشاوره رایگان قبل از خرید</span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4 leading-snug">
+            هنوز مطمئن نیستی چه رژیمی برای شرایط بدنت مناسبه؟
+          </h2>
+          <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-8">
+            در کمتر از ۲ دقیقه تست هوشمند بدنی را تکمیل کن یا به کارشناس ارشد تغذیه ما در تلگرام پیام بده تا دقیق‌ترین برنامه را به تو پیشنهاد دهیم.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="assessment.html" class="bg-secondary-container text-primary hover:bg-white font-bold px-8 py-3.5 rounded-full text-sm transition-all shadow-md">
+              ارزیابی هوشمند آنلاین
+            </a>
+            <button onclick="openTelegramOrder('مشاوره رایگان انتخاب رژیم', 'رایگان')" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-8 py-3.5 rounded-full text-sm transition-all">
+              ارسال پیام به متخصص در تلگرام
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (Exact Stitch Screen 1 Footer Hierarchy) -->
+  <footer class="bg-surface/80 border-t border-surface-variant py-14">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+        
+        <!-- Column 1 (Right in RTL): Brand Info & Copyright -->
+        <div class="md:col-span-5 text-right">
+          <h3 class="text-2xl font-black text-primary mb-3">خوراک آرا</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed max-w-sm mb-6">
+            سامانه تخصصی ارائه برنامه‌های غذایی بالینی و ورزشی، متناسب‌سازی‌شده با بیوشیمی بدن و فرهنگ غذایی ایرانی.
+          </p>
+          <p class="text-xs text-outline">
+            تمامی حقوق برای پلتفرم تغذیه محفوظ است © ۱۴۰۲ - ۱۴۰۳
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="md:col-span-4 text-right">
+          <h4 class="font-bold text-primary text-sm mb-4">دسترسی سریع</h4>
+          <ul class="space-y-2.5 text-xs lg:text-sm text-on-surface-variant font-medium">
+            <li><a href="contact.html" class="hover:text-primary transition-colors">تماس با ما</a></li>
+            <li><a href="contact.html#faq" class="hover:text-primary transition-colors">سوالات متداول</a></li>
+            <li><a href="about.html" class="hover:text-primary transition-colors">حریم خصوصی</a></li>
+            <li><a href="about.html" class="hover:text-primary transition-colors">قوانین و مقررات</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 (Left in RTL): Contact Icons & Social -->
+        <div class="md:col-span-3 text-right">
+          <h4 class="font-bold text-primary text-sm mb-4">ارتباط با ما</h4>
+          <div class="flex items-center gap-4 text-primary mb-4">
+            <!-- Location Pin -->
+            <a href="contact.html" title="آدرس کلینیک" class="w-10 h-10 rounded-full bg-surface-variant/60 flex items-center justify-center hover:bg-secondary-container transition-colors">
+              <span class="material-symbols-outlined text-xl">location_on</span>
+            </a>
+            <!-- Phone -->
+            <a href="tel:02188990011" title="تماس تلفنی" class="w-10 h-10 rounded-full bg-surface-variant/60 flex items-center justify-center hover:bg-secondary-container transition-colors">
+              <span class="material-symbols-outlined text-xl">call</span>
+            </a>
+            <!-- Mail / Telegram -->
+            <button onclick="openTelegramOrder('ارتباط سریع و پشتیبانی', '-')" title="کانال و پشتیبانی تلگرام" class="w-10 h-10 rounded-full bg-surface-variant/60 flex items-center justify-center hover:bg-secondary-container transition-colors">
+              <span class="material-symbols-outlined text-xl">mail</span>
+            </button>
+          </div>
+          <p class="text-xs text-on-surface-variant">
+            پشتیبانی تلگرام: <span class="font-bold text-secondary" dir="ltr">@AhmadiDiet</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

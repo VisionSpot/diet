@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ارزیابی هوشمند بدن | خوراک آرا</title>
+  <meta name="description" content="ارزیابی آنلاین و هوشمند شاخص‌های بیولوژیکی، BMI، متابولیسم پایه BMR و کالری مصرفی شما برای دریافت رژیم غذایی اختصاصی." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#012d1d',
+            'primary-container': '#1b4332',
+            secondary: '#0e6c4a',
+            'secondary-container': '#a0f4c8',
+            accent: '#d8f3dc',
+            background: '#f4fafd',
+            surface: '#ffffff',
+            'surface-variant': '#dde4e6',
+            'on-surface-variant': '#414844',
+            'outline-variant': '#c1c8c2',
+          },
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-background text-[#161d1f] font-vazir min-h-screen relative flex flex-col justify-between selection:bg-secondary-container selection:text-primary">
+  <div class="bg-ambient"></div>
+
+  <!-- Top Minimal Nav -->
+  <header class="py-4 px-6 max-w-5xl mx-auto w-full flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 text-primary font-black text-xl hover:opacity-80 transition-opacity">
+      <span class="material-symbols-outlined text-2xl">arrow_forward</span>
+      <span>بازگشت به صفحه اصلی</span>
+    </a>
+    <span class="text-sm font-bold text-secondary">خوراک آرا • ارزیابی سلامت</span>
+  </header>
+
+  <!-- Main Container (Matching Stitch Screen 2) -->
+  <main class="max-w-2xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full flex-grow flex flex-col justify-center">
+    
+    <!-- Title & Subtitle -->
+    <div class="text-center mb-8">
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-primary mb-2">
+        ارزیابی هوشمند بدن
+      </h1>
+      <p class="text-sm sm:text-base text-on-surface-variant font-medium">
+        برنامه غذایی اختصاصی شما، بر پایه علم و سبک زندگی‌تان
+      </p>
+    </div>
+
+    <!-- Progress Stepper (Exact Stitch Screen 2 Stepper) -->
+    <div class="relative flex justify-between items-center mb-10 px-6 sm:px-10">
+      <!-- Background Line -->
+      <div class="absolute left-8 right-8 top-1/2 -translate-y-1/2 h-1 bg-surface-variant rounded-full z-0"></div>
+      <!-- Active Progress Fill -->
+      <div id="progress-bar" class="absolute right-8 top-1/2 -translate-y-1/2 h-1 bg-primary-container rounded-full z-0 transition-all duration-500 w-[12%]"></div>
+      
+      <!-- Step 1: Person -->
+      <div class="relative z-10 flex flex-col items-center">
+        <div data-step-indicator="1" class="w-10 h-10 rounded-full border-2 flex items-center justify-center font-bold text-sm transition-all duration-300 bg-primary-container text-white border-primary-container">
+          <span class="material-symbols-outlined text-[20px]">person</span>
+        </div>
+        <span class="text-[11px] text-on-surface-variant mt-1 hidden sm:block">مشخصات</span>
+      </div>
+
+      <!-- Step 2: Weight & Height -->
+      <div class="relative z-10 flex flex-col items-center">
+        <div data-step-indicator="2" class="w-10 h-10 rounded-full border-2 border-surface-variant bg-surface flex items-center justify-center font-bold text-sm text-on-surface-variant transition-all duration-300">
+          <span class="material-symbols-outlined text-[20px]">monitor_weight</span>
+        </div>
+        <span class="text-[11px] text-on-surface-variant mt-1 hidden sm:block">قد و وزن</span>
+      </div>
+
+      <!-- Step 3: Goal & Activity -->
+      <div class="relative z-10 flex flex-col items-center">
+        <div data-step-indicator="3" class="w-10 h-10 rounded-full border-2 border-surface-variant bg-surface flex items-center justify-center font-bold text-sm text-on-surface-variant transition-all duration-300">
+          <span class="material-symbols-outlined text-[20px]">flag</span>
+        </div>
+        <span class="text-[11px] text-on-surface-variant mt-1 hidden sm:block">هدف</span>
+      </div>
+
+      <!-- Step 4: Habits & Food -->
+      <div class="relative z-10 flex flex-col items-center">
+        <div data-step-indicator="4" class="w-10 h-10 rounded-full border-2 border-surface-variant bg-surface flex items-center justify-center font-bold text-sm text-on-surface-variant transition-all duration-300">
+          <span class="material-symbols-outlined text-[20px]">restaurant</span>
+        </div>
+        <span class="text-[11px] text-on-surface-variant mt-1 hidden sm:block">عادات</span>
+      </div>
+
+      <!-- Step 5: Final Result & Plan -->
+      <div class="relative z-10 flex flex-col items-center">
+        <div data-step-indicator="5" class="w-10 h-10 rounded-full border-2 border-surface-variant bg-surface flex items-center justify-center font-bold text-sm text-on-surface-variant transition-all duration-300">
+          <span class="material-symbols-outlined text-[20px]">analytics</span>
+        </div>
+        <span class="text-[11px] text-on-surface-variant mt-1 hidden sm:block">تحلیل نهایی</span>
+      </div>
+    </div>
+
+    <!-- Glass Panel Card Container -->
+    <div class="glass-panel rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+      
+      <!-- STEP 1: Personal Info -->
+      <div id="step-1" class="step-container active">
+        <h2 class="text-2xl font-bold text-primary mb-6">مشخصات فردی</h2>
+        
+        <div class="space-y-6">
+          <!-- Gender Select -->
+          <div class="premium-input p-4">
+            <label class="block text-xs font-bold text-on-surface-variant mb-2">جنسیت خود را انتخاب کنید</label>
+            <div class="grid grid-cols-2 gap-4">
+              <label class="cursor-pointer">
+                <input type="radio" name="gender" value="female" checked class="peer sr-only" />
+                <div class="p-4 rounded-2xl border border-outline-variant text-center peer-checked:border-secondary peer-checked:bg-secondary-container/40 peer-checked:text-primary transition-all hover:bg-white/60">
+                  <span class="material-symbols-outlined text-3xl block mb-1 text-primary">female</span>
+                  <span class="font-bold text-sm">خانم</span>
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="gender" value="male" class="peer sr-only" />
+                <div class="p-4 rounded-2xl border border-outline-variant text-center peer-checked:border-secondary peer-checked:bg-secondary-container/40 peer-checked:text-primary transition-all hover:bg-white/60">
+                  <span class="material-symbols-outlined text-3xl block mb-1 text-primary">male</span>
+                  <span class="font-bold text-sm">آقا</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Age Input -->
+          <div class="premium-input p-4 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-surface-variant/60 flex items-center justify-center text-primary shrink-0">
+              <span class="material-symbols-outlined">calendar_today</span>
+            </div>
+            <div class="flex-grow">
+              <label class="block text-xs text-on-surface-variant font-medium mb-1">سن شما (سال)</label>
+              <input 
+                id="age-input" 
+                type="number" 
+                min="14" 
+                max="90" 
+                value="28" 
+                class="w-full bg-transparent border-0 p-0 font-bold text-lg text-primary focus:ring-0" 
+                placeholder="مثال: ۲۸"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Current Height & Weight (Matching Stitch Screen 2 Active State) -->
+      <div id="step-2" class="step-container">
+        <h2 class="text-2xl font-bold text-primary mb-6">وضعیت بدنی فعلی</h2>
+        
+        <div class="space-y-6">
+          
+          <!-- Height Slider Card -->
+          <div class="premium-input p-6">
+            <div class="flex justify-between items-center mb-4">
+              <label class="text-sm font-bold text-primary">قد (سانتی‌متر)</label>
+              <span id="height-val" class="text-2xl font-extrabold text-primary">۱۷۰</span>
+            </div>
+            <input 
+              id="height-slider" 
+              type="range" 
+              min="140" 
+              max="220" 
+              value="170" 
+              class="custom-range"
+            />
+            <div class="flex justify-between text-[11px] text-on-surface-variant mt-2">
+              <span>۱۴۰ سانتی‌متر</span>
+              <span>۲۲۰ سانتی‌متر</span>
+            </div>
+          </div>
+
+          <!-- Weight Slider Card -->
+          <div class="premium-input p-6">
+            <div class="flex justify-between items-center mb-4">
+              <label class="text-sm font-bold text-primary">وزن (کیلوگرم)</label>
+              <span id="weight-val" class="text-2xl font-extrabold text-primary">۷۰</span>
+            </div>
+            <input 
+              id="weight-slider" 
+              type="range" 
+              min="40" 
+              max="150" 
+              value="70" 
+              class="custom-range"
+            />
+            <div class="flex justify-between text-[11px] text-on-surface-variant mt-2">
+              <span>۴۰ کیلوگرم</span>
+              <span>۱۵۰ کیلوگرم</span>
+            </div>
+          </div>
+
+          <!-- Minimal Body Line Art Illustration matching Stitch Screen 2 -->
+          <div class="rounded-2xl p-4 bg-surface/60 border border-outline-variant flex items-center justify-center gap-4 text-center">
+            <div class="w-12 h-12 rounded-full bg-secondary-container/50 flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-2xl">accessibility_new</span>
+            </div>
+            <div class="text-right">
+              <p class="text-xs font-bold text-primary">محاسبه در لحظه بیومتریک بدن</p>
+              <p class="text-[11px] text-on-surface-variant">قد و وزن شما مبنای توزیع دقیق درشت‌مغذی‌ها خواهد بود.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STEP 3: Goals & Activity Level -->
+      <div id="step-3" class="step-container">
+        <h2 class="text-2xl font-bold text-primary mb-6">هدف سلامتی و سطح تحرک</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <label class="block text-xs font-bold text-on-surface-variant mb-2">هدف اصلی شما از رژیم چیست؟</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="cursor-pointer">
+                <input type="radio" name="goal" value="weight_loss" checked class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/40 transition-all flex items-center gap-3">
+                  <span class="material-symbols-outlined text-secondary">trending_down</span>
+                  <div>
+                    <p class="goal-title text-sm font-bold text-primary">کاهش وزن و چربی‌سوزی</p>
+                    <p class="text-[10px] text-on-surface-variant">رسیدن به تناسب اندام ماندگار</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="goal" value="muscle_gain" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/40 transition-all flex items-center gap-3">
+                  <span class="material-symbols-outlined text-secondary">fitness_center</span>
+                  <div>
+                    <p class="goal-title text-sm font-bold text-primary">افزایش وزن و عضله‌سازی</p>
+                    <p class="text-[10px] text-on-surface-variant">حجم خشک و تقویت ساختار بدن</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="goal" value="fatty_liver" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/40 transition-all flex items-center gap-3">
+                  <span class="material-symbols-outlined text-secondary">clean_hands</span>
+                  <div>
+                    <p class="goal-title text-sm font-bold text-primary">پاکسازی کبد چرب</p>
+                    <p class="text-[10px] text-on-surface-variant">بهبود آزمایشات و سم‌زدایی</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="goal" value="maintenance" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/40 transition-all flex items-center gap-3">
+                  <span class="material-symbols-outlined text-secondary">favorite</span>
+                  <div>
+                    <p class="goal-title text-sm font-bold text-primary">تثبیت وزن و سلامت عمومی</p>
+                    <p class="text-[10px] text-on-surface-variant">اصلاح عادات غذایی روزانه</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Activity Level -->
+          <div>
+            <label class="block text-xs font-bold text-on-surface-variant mb-2">میزان فعالیت فیزیکی در طول هفته</label>
+            <div class="space-y-2">
+              <label class="cursor-pointer block">
+                <input type="radio" name="activity" value="1.2" class="peer sr-only" />
+                <div class="p-3 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/30 transition-all flex items-center justify-between text-xs">
+                  <span class="activity-title font-bold text-primary">بی‌تحرک (کار پشت‌میزی، بدون ورزش)</span>
+                  <span class="text-on-surface-variant">کالری پایه</span>
+                </div>
+              </label>
+
+              <label class="cursor-pointer block">
+                <input type="radio" name="activity" value="1.375" checked class="peer sr-only" />
+                <div class="p-3 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/30 transition-all flex items-center justify-between text-xs">
+                  <span class="activity-title font-bold text-primary">فعالیت سبک (۱ الی ۳ روز پیاده‌روی یا ورزش سبک)</span>
+                  <span class="text-on-surface-variant">پیشنهادی</span>
+                </div>
+              </label>
+
+              <label class="cursor-pointer block">
+                <input type="radio" name="activity" value="1.55" class="peer sr-only" />
+                <div class="p-3 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/30 transition-all flex items-center justify-between text-xs">
+                  <span class="activity-title font-bold text-primary">فعالیت متوسط (۳ الی ۵ روز ورزش منظم باشگاهی)</span>
+                  <span class="text-on-surface-variant">ورزشی</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Dietary Habits & Restrictions -->
+      <div id="step-4" class="step-container">
+        <h2 class="text-2xl font-bold text-primary mb-6">عادات و ترجیحات غذایی</h2>
+        
+        <div class="space-y-6">
+          <div>
+            <label class="block text-xs font-bold text-on-surface-variant mb-2">سبک غذایی مورد علاقه شما</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="cursor-pointer">
+                <input type="radio" name="diet_pref" value="balanced" checked class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/40 transition-all">
+                  <p class="diet-title text-sm font-bold text-primary">سفره غذای ایرانی</p>
+                  <p class="text-[10px] text-on-surface-variant">برنج، نان، خورشت‌های خانگی و پروتئین</p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="diet_pref" value="vegetarian" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/40 transition-all">
+                  <p class="diet-title text-sm font-bold text-primary">گیاه‌خواری (وجترین / وگان)</p>
+                  <p class="text-[10px] text-on-surface-variant">مبتنی بر گیاهان و حبوبات</p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="diet_pref" value="low_carb" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/40 transition-all">
+                  <p class="diet-title text-sm font-bold text-primary">کم‌کربوهیدرات (لوکارب / کتو)</p>
+                  <p class="text-[10px] text-on-surface-variant">پروتئین و چربی‌های سالم بالا</p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input type="radio" name="diet_pref" value="gluten_free" class="peer sr-only" />
+                <div class="p-3.5 rounded-2xl border border-outline-variant peer-checked:border-secondary peer-checked:bg-secondary-container/40 transition-all">
+                  <p class="diet-title text-sm font-bold text-primary">بدون گلوتن / حساسیت گوارشی</p>
+                  <p class="text-[10px] text-on-surface-variant">ویژه سلیاک یا روده تحریک‌پذیر</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="premium-input p-4">
+            <label class="block text-xs font-bold text-on-surface-variant mb-2">توضیحات و ترجیحات خاص (اختیاری)</label>
+            <input type="text" placeholder="مثلاً: عدم علاقه به بادمجان، مصرف چای زیاد، و ..." class="w-full bg-transparent border-0 p-0 text-xs text-primary focus:ring-0" />
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5: Final Comprehensive Analysis Report -->
+      <div id="step-5" class="step-container">
+        <div class="text-center mb-6">
+          <div class="w-12 h-12 rounded-full bg-secondary-container text-primary flex items-center justify-center mx-auto mb-2">
+            <span class="material-symbols-outlined text-2xl font-bold">verified</span>
+          </div>
+          <h2 class="text-2xl font-black text-primary">نتیجه آنالیز هوشمند بدن شما</h2>
+          <p class="text-xs text-on-surface-variant">بر اساس فرمول‌های استاندارد پزشکی و بیوشیمی بالینی</p>
+        </div>
+
+        <div class="space-y-4 mb-6">
+          
+          <!-- BMI Card -->
+          <div class="p-4 rounded-2xl bg-surface border border-secondary-container flex items-center justify-between">
+            <div>
+              <span class="text-xs text-on-surface-variant block">شاخص توده بدنی (BMI)</span>
+              <span id="res-bmi-status" class="text-xs font-bold text-secondary">نرمال</span>
+            </div>
+            <span id="res-bmi" class="text-3xl font-black text-primary">۲۴.۲</span>
+          </div>
+
+          <!-- 2 Metrics Grid: BMR & TDEE -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3 rounded-2xl bg-surface-variant/40 border border-outline-variant/60 text-right">
+              <span class="text-[11px] text-on-surface-variant block">متابولیسم پایه (BMR)</span>
+              <span id="res-bmr" class="text-base font-extrabold text-primary">۱,۴۸۰ کالری</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-surface-variant/40 border border-outline-variant/60 text-right">
+              <span class="text-[11px] text-on-surface-variant block">کالری مصرفی کل (TDEE)</span>
+              <span id="res-tdee" class="text-base font-extrabold text-primary">۲,۰۳۵ کالری</span>
+            </div>
+          </div>
+
+          <!-- Target Calories & Water -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-3 rounded-2xl bg-emerald-50 border border-secondary-container text-right">
+              <span class="text-[11px] text-secondary font-bold block">کالری هدف رژیم شما</span>
+              <span id="res-cal" class="text-base font-extrabold text-primary">۱,۵۵۰ کالری</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-surface-variant/40 border border-outline-variant/60 text-right">
+              <span class="text-[11px] text-on-surface-variant block">نیاز روزانه به آب</span>
+              <span id="res-water" class="text-base font-extrabold text-primary">۲.۵ لیتر (۸ لیوان)</span>
+            </div>
+          </div>
+
+          <!-- Recommended Plan Box -->
+          <div class="p-4 rounded-2xl bg-primary text-white text-right">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs text-secondary-container font-bold">پلن پیشنهادی هوشمند برای شما:</span>
+              <span id="res-price" class="text-xs font-bold bg-white/20 px-2 py-0.5 rounded-full">۱,۲۰۰,۰۰۰ تومان</span>
+            </div>
+            <h3 id="res-plan" class="text-base font-extrabold text-white mb-2">پلن ۳ ماهه کاهش وزن حرفه‌ای</h3>
+            <p class="text-[11px] text-gray-300 leading-relaxed">
+              شامل تنظیم دقیق درشت‌مغذی‌ها، پشتیبانی روزانه در تلگرام، لیست خرید و چک‌آپ دوره‌ای با متخصص تغذیه.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Action Navigation Buttons (Exact Stitch Screen 2 Action Footer) -->
+      <div class="mt-8 flex gap-4 rtl:flex-row-reverse items-center">
+        <!-- Next / Submit Button -->
+        <button id="next-step-btn" class="flex-1 bg-primary-container text-white hover:bg-primary font-bold rounded-full py-4 px-6 transition-all shadow-md flex items-center justify-center gap-2">
+          <span id="next-btn-text">مرحله بعد</span>
+          <span class="material-symbols-outlined text-lg rtl:-scale-x-100">arrow_forward</span>
+        </button>
+
+        <!-- Back Button -->
+        <button id="prev-step-btn" class="flex-none bg-surface-variant text-on-surface-variant hover:bg-surface-variant/80 font-bold rounded-full py-4 px-6 transition-colors border border-outline-variant">
+          بازگشت
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Bottom Mini Footer -->
+  <footer class="py-4 text-center text-xs text-outline">
+    خوراک آرا © تمامی حقوق محفوظ است
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/assessment.js"></script>
+</body>
+</html>

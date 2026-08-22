@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تماس با ما و مشاوره | خوراک آرا (احمدی دایت)</title>
+  <meta name="description" content="ارتباط مستقیم با پشتیبانی و متخصصین تغذیه خوراک آرا از طریق تلگرام، تلفن و فرم مشاوره." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#012d1d',
+            'primary-container': '#1b4332',
+            secondary: '#0e6c4a',
+            'secondary-container': '#a0f4c8',
+            accent: '#d8f3dc',
+            background: '#f4fafd',
+            surface: '#ffffff',
+            'surface-variant': '#dde4e6',
+            'on-surface-variant': '#414844',
+          },
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-background text-[#161d1f] font-vazir min-h-screen flex flex-col selection:bg-secondary-container selection:text-primary">
+  <div class="bg-ambient"></div>
+
+  <!-- Header -->
+  <header class="glass-header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-2xl lg:text-3xl font-black text-primary tracking-tight">
+          خوراک آرا
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-on-surface-variant">
+        <a href="index.html" class="hover:text-primary transition-colors py-1">صفحه اصلی</a>
+        <a href="products.html" class="hover:text-primary transition-colors py-1">رژیم‌های غذایی</a>
+        <a href="assessment.html" class="hover:text-primary transition-colors py-1">ارزیابی هوشمند</a>
+        <a href="dashboard.html" class="hover:text-primary transition-colors py-1">پنل کاربری</a>
+        <a href="about.html" class="hover:text-primary transition-colors py-1">درباره ما</a>
+        <a href="contact.html" class="text-primary font-bold relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-primary after:rounded-full">تماس با ما</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="assessment.html" class="hidden sm:inline-flex btn-primary text-sm">دریافت رژیم شخصی</a>
+        <button id="mobile-menu-btn" aria-label="منو" class="md:hidden w-10 h-10 rounded-full flex items-center justify-center bg-surface border border-outline-variant text-primary">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-primary/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-surface p-6 shadow-2xl flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-surface-variant">
+          <span class="text-2xl font-black text-primary">خوراک آرا</span>
+          <button id="close-mobile-menu" class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-variant text-primary">
+            <span class="material-symbols-outlined text-lg">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 mt-6 text-base font-medium">
+          <a href="index.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">صفحه اصلی</a>
+          <a href="products.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">رژیم‌های غذایی</a>
+          <a href="assessment.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">ارزیابی هوشمند بدن</a>
+          <a href="dashboard.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">پنل کاربری من</a>
+          <a href="about.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">درباره ما</a>
+          <a href="contact.html" class="text-primary font-bold bg-accent/40 px-4 py-2.5 rounded-xl">تماس با ما</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-surface-variant">
+        <a href="assessment.html" class="w-full btn-primary text-center">دریافت رژیم شخصی</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-6 lg:px-12 py-16 flex-grow">
+    
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <h1 class="text-3xl sm:text-4xl font-black text-primary mb-3">تماس و پشتیبانی اختصاصی</h1>
+      <p class="text-sm sm:text-base text-on-surface-variant">
+        همواره آماده پاسخگویی به پرسش‌های شما، مشاوره قبل از خرید و پشتیبانی در تمام طول دوره رژیم هستیم.
+      </p>
+    </div>
+
+    <!-- 2 Column: Contact Form (Direct to Telegram) & Info Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-20">
+      
+      <!-- Right: Direct Message Form -->
+      <div class="lg:col-span-7 glass-panel rounded-3xl p-8 text-right">
+        <div class="flex items-center gap-2 mb-6">
+          <div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-xl">send</span>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-primary">ارسال پیام مستقیم به متخصص در تلگرام</h2>
+            <p class="text-xs text-on-surface-variant">پاسخگویی سریع ظرف کمتر از ۲ ساعت</p>
+          </div>
+        </div>
+
+        <form id="contact-form" onsubmit="event.preventDefault(); sendCustomTelegramMessage();" class="space-y-4">
+          <div class="premium-input p-3 px-4">
+            <label class="block text-xs text-on-surface-variant font-medium mb-1">نام و نام خانوادگی</label>
+            <input id="contact-name" type="text" required placeholder="مثال: سارا راد" class="w-full bg-transparent border-0 p-0 text-sm text-primary focus:ring-0" />
+          </div>
+
+          <div class="premium-input p-3 px-4">
+            <label class="block text-xs text-on-surface-variant font-medium mb-1">موضوع پیام</label>
+            <select id="contact-subject" class="w-full bg-transparent border-0 p-0 text-sm text-primary focus:ring-0">
+              <option value="مشاوره انتخاب رژیم">مشاوره انتخاب رژیم مناسب</option>
+              <option value="سوال درباره پرداخت و ثبت‌نام">سوال درباره پرداخت و نحوه دریافت برنامه</option>
+              <option value="پیگیری وضعیت رژیم">پیگیری برنامه ثبت شده</option>
+              <option value="همکاری و پیشنهادات">همکاری و سایر موارد</option>
+            </select>
+          </div>
+
+          <div class="premium-input p-3 px-4">
+            <label class="block text-xs text-on-surface-variant font-medium mb-1">متن پیام یا سوال شما</label>
+            <textarea id="contact-msg" rows="4" required placeholder="لطفاً شرح مختصری از وضعیت یا سوال خود بنویسید..." class="w-full bg-transparent border-0 p-0 text-sm text-primary focus:ring-0"></textarea>
+          </div>
+
+          <button type="submit" class="w-full btn-primary py-4 text-sm font-bold shadow-md">
+            <span>ارسال پیام در تلگرام</span>
+            <span class="material-symbols-outlined text-lg">send</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Left: Contact Channels -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <!-- Telegram Card -->
+        <div class="glass-panel rounded-3xl p-6 text-right flex items-center justify-between glass-card-hover border-secondary-container">
+          <div>
+            <span class="text-xs text-secondary font-bold block">پشتیبانی اصلی ۲۴/۷</span>
+            <h3 class="text-lg font-bold text-primary">کانال و آیدی تلگرام</h3>
+            <p class="text-xs text-on-surface-variant mt-1" dir="ltr">@AhmadiDiet</p>
+          </div>
+          <button onclick="openTelegramOrder('مشاوره سریع', '-')" class="w-12 h-12 rounded-2xl bg-secondary-container text-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-2xl">chat</span>
+          </button>
+        </div>
+
+        <!-- Phone Card -->
+        <div class="glass-panel rounded-3xl p-6 text-right flex items-center justify-between glass-card-hover">
+          <div>
+            <span class="text-xs text-on-surface-variant block">پاسخگویی تلفنی (شنبه تا چهارشنبه ۱۰ الی ۱۸)</span>
+            <h3 class="text-lg font-bold text-primary">شماره تماس دفتر</h3>
+            <p class="text-xs text-on-surface-variant mt-1" dir="ltr">۰۲۱-۸۸۹۹۰۰۱۱</p>
+          </div>
+          <a href="tel:02188990011" class="w-12 h-12 rounded-2xl bg-surface-variant text-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-2xl">call</span>
+          </a>
+        </div>
+
+        <!-- Location Card -->
+        <div class="glass-panel rounded-3xl p-6 text-right flex items-center justify-between glass-card-hover">
+          <div>
+            <span class="text-xs text-on-surface-variant block">آدرس کلینیک حضوری (با وقت قبلی)</span>
+            <h3 class="text-lg font-bold text-primary">تهران، خیابان ولیعصر</h3>
+            <p class="text-xs text-on-surface-variant mt-1">بالاتر از پارک ساعی، پلاک ۲۴، واحد ۶</p>
+          </div>
+          <div class="w-12 h-12 rounded-2xl bg-surface-variant text-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-2xl">location_on</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="max-w-4xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-primary mb-2">سوالات متداول</h2>
+        <p class="text-xs sm:text-sm text-on-surface-variant">پاسخ سریع به پرسش‌های رایج مراجعین خوراک آرا</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <details class="glass-panel rounded-2xl p-5 text-right group cursor-pointer">
+          <summary class="font-bold text-primary flex items-center justify-between list-none text-sm sm:text-base">
+            <span>چقدر طول می‌کشد تا برنامه اختصاصی من آماده شود؟</span>
+            <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mt-3 pt-3 border-t border-surface-variant">
+            پس از تکمیل ثبت‌نام و بررسی دقیق پرسشنامه بیومتریک و آزمایشات شما توسط متخصص تغذیه، برنامه کامل در قالب فایل شکیل و خوانا ظرف حداکثر ۲۴ الی ۴۸ ساعت در تلگرام ارسال می‌گردد.
+          </p>
+        </details>
+
+        <details class="glass-panel rounded-2xl p-5 text-right group cursor-pointer">
+          <summary class="font-bold text-primary flex items-center justify-between list-none text-sm sm:text-base">
+            <span>آیا غذاهای برنامه عجیب و غریب یا گران‌قیمت هستند؟</span>
+            <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mt-3 pt-3 border-t border-surface-variant">
+            خیر! یکی از مزیت‌های اصلی خوراک آرا، طراحی رژیم منطبق بر سفره غذای ایرانی است. غذاها از اقلام در دسترس مانند برنج، مرغ، حبوبات، تخم‌مرغ، سبزیجات و نان سنتی با مقادیر و فرمول‌های دقیق کالری و درشت‌مغذی تنظیم می‌شوند.
+          </p>
+        </details>
+
+        <details class="glass-panel rounded-2xl p-5 text-right group cursor-pointer">
+          <summary class="font-bold text-primary flex items-center justify-between list-none text-sm sm:text-base">
+            <span>آیا در طول دوره امکان ارتباط با متخصص وجود دارد؟</span>
+            <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mt-3 pt-3 border-t border-surface-variant">
+            بله، پشتیبانی روزانه در تلگرام برای پاسخگویی به هرگونه سوال، جایگزینی وعده‌ها هنگام سفر یا مهمانی و بررسی هفتگی روند وزن شما فعال است.
+          </p>
+        </details>
+
+        <details class="glass-panel rounded-2xl p-5 text-right group cursor-pointer">
+          <summary class="font-bold text-primary flex items-center justify-between list-none text-sm sm:text-base">
+            <span>چگونه می‌توانم هزینه پلن را پرداخت کنم؟</span>
+            <span class="material-symbols-outlined text-secondary transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mt-3 pt-3 border-t border-surface-variant">
+            با کلیک روی دکمه شروع رژیم یا ثبت‌نام در هر صفحه، به پشتیبانی تلگرام متصل شده و شماره کارت یا درگاه پرداخت رسمی برای شما ارسال می‌گردد.
+          </p>
+        </details>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface/80 border-t border-surface-variant py-10 mt-16">
+    <div class="max-w-7xl mx-auto px-6 text-center text-xs text-on-surface-variant">
+      خوراک آرا • تمامی حقوق محفوظ است © ۱۴۰۲ - ۱۴۰۳
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function sendCustomTelegramMessage() {
+      const name = document.getElementById('contact-name').value;
+      const subject = document.getElementById('contact-subject').value;
+      const msg = document.getElementById('contact-msg').value;
+
+      let fullMsg = `🌿 پیام جدید از وب‌سایت خوراک آرا:\n`;
+      fullMsg += `👤 نام: ${name}\n`;
+      fullMsg += `📌 موضوع: ${subject}\n\n`;
+      fullMsg += `💬 متن پیام:\n${msg}`;
+
+      const encoded = encodeURIComponent(fullMsg);
+      showToast('در حال هدایت به تلگرام جهت ارسال پیام...', 'info');
+      setTimeout(() => {
+        window.open(`https://t.me/AhmadiDiet?text=${encoded}`, '_blank');
+      }, 400);
+    }
+  </script>
+</body>
+</html>

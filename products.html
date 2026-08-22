@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>رژیم‌های غذایی و پلن‌ها | خوراک آرا (احمدی دایت)</title>
+  <meta name="description" content="لیست رژیم‌های کاهش وزن، افزایش حجم، کتوژنیک و پاکسازی کبد به همراه پشتیبانی تخصصی متخصصین تغذیه." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#012d1d',
+            'primary-container': '#1b4332',
+            secondary: '#0e6c4a',
+            'secondary-container': '#a0f4c8',
+            accent: '#d8f3dc',
+            background: '#f4fafd',
+            surface: '#ffffff',
+            'surface-variant': '#dde4e6',
+            'on-surface-variant': '#414844',
+          },
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-background text-[#161d1f] font-vazir min-h-screen flex flex-col selection:bg-secondary-container selection:text-primary">
+  <div class="bg-ambient"></div>
+
+  <!-- Header -->
+  <header class="glass-header sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-2xl lg:text-3xl font-black text-primary tracking-tight">
+          احمدی دایت
+          <span class="text-xs text-secondary font-medium block">خوراک آرا</span>
+        </a>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-on-surface-variant">
+        <a href="index.html" class="hover:text-primary transition-colors py-1">
+          صفحه اصلی
+        </a>
+        <a href="products.html" class="text-primary font-bold relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2.5px] after:bg-primary after:rounded-full">
+          رژیم‌های غذایی
+        </a>
+        <a href="assessment.html" class="hover:text-primary transition-colors py-1">
+          ارزیابی هوشمند
+        </a>
+        <a href="dashboard.html" class="hover:text-primary transition-colors py-1">
+          پنل کاربری
+        </a>
+        <a href="about.html" class="hover:text-primary transition-colors py-1">
+          درباره ما
+        </a>
+        <a href="contact.html" class="hover:text-primary transition-colors py-1">
+          تماس با ما
+        </a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-3">
+        <a href="assessment.html" class="hidden sm:inline-flex bg-primary text-white hover:bg-primary-container px-6 py-3 rounded-full text-sm font-bold transition-all shadow-sm">
+          دریافت رژیم شخصی من
+        </a>
+        <button id="mobile-menu-btn" aria-label="منو" class="md:hidden w-10 h-10 rounded-full flex items-center justify-center bg-surface border border-outline-variant text-primary">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 bg-primary/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-surface p-6 shadow-2xl flex flex-col justify-between">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-surface-variant">
+          <span class="text-2xl font-black text-primary">احمدی دایت</span>
+          <button id="close-mobile-menu" class="w-8 h-8 rounded-full flex items-center justify-center bg-surface-variant text-primary">
+            <span class="material-symbols-outlined text-lg">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-4 mt-6 text-base font-medium">
+          <a href="index.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">صفحه اصلی</a>
+          <a href="products.html" class="text-primary font-bold bg-accent/40 px-4 py-2.5 rounded-xl">رژیم‌های غذایی</a>
+          <a href="assessment.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">ارزیابی هوشمند بدن</a>
+          <a href="dashboard.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">پنل کاربری من</a>
+          <a href="about.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">درباره ما</a>
+          <a href="contact.html" class="text-on-surface-variant hover:text-primary px-4 py-2.5">تماس با ما</a>
+        </nav>
+      </div>
+      <div class="pt-6 border-t border-surface-variant">
+        <a href="assessment.html" class="w-full btn-primary text-center">دریافت رژیم شخصی</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content (Exact Stitch Screen 4 Layout) -->
+  <main class="max-w-7xl mx-auto px-6 lg:px-12 py-12 flex-grow">
+    
+    <!-- Top Tags & Category Bar -->
+    <div class="flex flex-wrap items-center gap-3 mb-6">
+      <button class="badge-pill bg-secondary-container text-primary font-bold">
+        <span>محبوب‌ترین</span>
+      </button>
+      <button class="badge-pill bg-accent/60 text-primary font-bold">
+        <span>کاهش وزن</span>
+      </button>
+      <button class="badge-pill bg-surface-variant text-on-surface-variant hover:bg-secondary-container hover:text-primary transition-colors">
+        <span>افزایش وزن و حجم</span>
+      </button>
+      <button class="badge-pill bg-surface-variant text-on-surface-variant hover:bg-secondary-container hover:text-primary transition-colors">
+        <span>پاکسازی کبد چرب</span>
+      </button>
+      <button class="badge-pill bg-surface-variant text-on-surface-variant hover:bg-secondary-container hover:text-primary transition-colors">
+        <span>تثبیت وزن</span>
+      </button>
+    </div>
+
+    <!-- Main Title & Description -->
+    <div class="max-w-3xl mb-14 text-right">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-primary tracking-tight mb-4">
+        رژیم کاهش وزن حرفه‌ای
+      </h1>
+      <p class="text-base sm:text-lg text-on-surface-variant leading-relaxed font-normal">
+        یک برنامه جامع و علمی برای رسیدن به وزن ایده‌آل بدون احساس گرسنگی. این رژیم با تمرکز بر تعادل درشت‌مغذی‌ها و استفاده از مواد غذایی طبیعی، به شما کمک می‌کند تا به صورت پایدار و سالم وزن کم کنید.
+      </p>
+    </div>
+
+    <!-- 2-Column Split matching Stitch Screen 4 -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      
+      <!-- Right in RTL: Key Features 4-Grid -->
+      <div class="lg:col-span-7 order-2 lg:order-1">
+        <h2 class="text-2xl font-extrabold text-primary mb-8 text-right">
+          ویژگی‌های کلیدی
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <!-- Feature 1: مدیریت کالری دقیق -->
+          <div class="glass-panel rounded-3xl p-6 text-right glass-card-hover">
+            <div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">restaurant</span>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">مدیریت کالری دقیق</h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              محاسبه دقیق کالری مورد نیاز بر اساس متابولیسم پایه و سطح فعالیت شما برای ایجاد نقص کالری ایمن.
+            </p>
+          </div>
+
+          <!-- Feature 2: تعادل درشت‌مغذی‌ها -->
+          <div class="glass-panel rounded-3xl p-6 text-right glass-card-hover">
+            <div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">pie_chart</span>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">تعادل درشت‌مغذی‌ها</h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              توزیع بهینه پروتئین، کربوهیدرات و چربی برای حفظ توده عضلانی و افزایش چربی‌سوزی.
+            </p>
+          </div>
+
+          <!-- Feature 3: پشتیبانی ۲۴/۷ تخصصی -->
+          <div class="glass-panel rounded-3xl p-6 text-right glass-card-hover">
+            <div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">support_agent</span>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">پشتیبانی تخصصی ۲۴/۷</h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              دسترسی مداوم به متخصصین تغذیه برای پاسخگویی به سوالات و تنظیم مجدد برنامه در صورت نیاز.
+            </p>
+          </div>
+
+          <!-- Feature 4: ادغام با برنامه تمرینی -->
+          <div class="glass-panel rounded-3xl p-6 text-right glass-card-hover">
+            <div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-primary mb-4">
+              <span class="material-symbols-outlined text-2xl">fitness_center</span>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-2">ادغام با برنامه تمرینی</h3>
+            <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+              هماهنگی کامل رژیم غذایی با نوع و شدت تمرینات ورزشی شما برای حداکثر نتیجه.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Left in RTL: Pricing Card (Exact Stitch Screen 4 Card) -->
+      <div class="lg:col-span-5 order-1 lg:order-2">
+        <div class="glass-panel rounded-3xl p-8 lg:p-10 shadow-xl border border-white/80 sticky top-28">
+          
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-2xl font-black text-primary">پلن ۳ ماهه</h3>
+            <span class="badge-pill bg-primary text-secondary-container font-bold text-xs">پیشنهاد طلایی</span>
+          </div>
+
+          <!-- Price -->
+          <div class="flex items-baseline gap-2 mb-4">
+            <span class="text-3xl sm:text-4xl font-extrabold text-primary tracking-tight">۱,۲۰۰,۰۰۰</span>
+            <span class="text-sm font-medium text-on-surface-variant">تومان / دوره ۳ ماهه</span>
+          </div>
+
+          <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-8">
+            بهترین انتخاب برای مشاهده نتایج پایدار و تغییر سبک زندگی.
+          </p>
+
+          <!-- Checkmark Features -->
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-sm font-bold">check</span>
+              </div>
+              <span class="text-sm font-medium text-primary">برنامه غذایی اختصاصی و منعطف</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-sm font-bold">check</span>
+              </div>
+              <span class="text-sm font-medium text-primary">پشتیبانی روزانه از طریق تلگرام</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-sm font-bold">check</span>
+              </div>
+              <span class="text-sm font-medium text-primary">لیست خرید هفتگی مواد غذایی</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 rounded-full bg-secondary-container flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-sm font-bold">check</span>
+              </div>
+              <span class="text-sm font-medium text-primary">دستور پخت‌های رژیمی و خوشمزه</span>
+            </div>
+          </div>
+
+          <!-- CTA Button to Telegram Order -->
+          <button 
+            onclick="openTelegramOrder('پلن ۳ ماهه رژیم کاهش وزن حرفه‌ای', '۱,۲۰۰,۰۰۰ تومان')" 
+            class="w-full bg-primary hover:bg-primary-container text-white py-4 rounded-2xl font-bold text-base transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+            <span>شروع رژیم و ثبت‌نام در تلگرام</span>
+            <span class="material-symbols-outlined text-lg">send</span>
+          </button>
+
+          <p class="text-center text-[11px] text-outline mt-3">
+            تحویل برنامه ظرف حداکثر ۲۴ الی ۴۸ ساعت پس از بررسی کارشناس
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Additional Plan Options (1-Month Starter & 6-Month VIP) -->
+    <div class="mt-24">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-primary mb-3">سایر دوره‌های زمانی</h2>
+        <p class="text-sm text-on-surface-variant">پلن متناسب با بودجه و زمان‌بندی هدف خود را انتخاب نمایید</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- 1-Month Starter -->
+        <div class="glass-panel rounded-3xl p-8 text-right flex flex-col justify-between glass-card-hover">
+          <div>
+            <h3 class="text-xl font-bold text-primary mb-2">پلن ۱ ماهه شروع سریع</h3>
+            <div class="text-2xl font-extrabold text-primary mb-4">
+              ۴۹۰,۰۰۰ <span class="text-xs font-normal text-on-surface-variant">تومان</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">مناسب برای آشنایی با روند رژیم و اصلاح اولیه سبک تغذیه.</p>
+            <ul class="space-y-3 text-xs text-on-surface-variant mb-8">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> ۲ بار چک‌آپ و اصلاح برنامه</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> جدول کالری و درشت‌مغذی‌ها</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> پشتیبانی تلگرامی</li>
+            </ul>
+          </div>
+          <button onclick="openTelegramOrder('پلن ۱ ماهه شروع سریع', '۴۹۰,۰۰۰ تومان')" class="btn-outline w-full text-xs">
+            سفارش پلن ۱ ماهه
+          </button>
+        </div>
+
+        <!-- 3-Month Popular (Highlighted) -->
+        <div class="glass-panel rounded-3xl p-8 text-right flex flex-col justify-between border-2 border-secondary-container bg-emerald-50/20 shadow-xl relative">
+          <div class="absolute -top-3 right-6 bg-primary text-secondary-container text-[11px] font-bold px-3 py-1 rounded-full">
+            پرطرفدارترین
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-primary mb-2">پلن ۳ ماهه استاندارد</h3>
+            <div class="text-2xl font-extrabold text-primary mb-4">
+              ۱,۲۰۰,۰۰۰ <span class="text-xs font-normal text-on-surface-variant">تومان</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">کامل‌ترین دوره برای کاهش سایز و تثبیت وزن ماندگار.</p>
+            <ul class="space-y-3 text-xs text-on-surface-variant mb-8">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> ۶ بار آنالیز و بازتنظیم کامل</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> برنامه تمرینی سبک مکمل</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> پشتیبانی روزانه اختصاصی</li>
+            </ul>
+          </div>
+          <button onclick="openTelegramOrder('پلن ۳ ماهه استاندارد', '۱,۲۰۰,۰۰۰ تومان')" class="btn-primary w-full text-xs">
+            سفارش پلن ۳ ماهه
+          </button>
+        </div>
+
+        <!-- 6-Month VIP Gold -->
+        <div class="glass-panel rounded-3xl p-8 text-right flex flex-col justify-between gold-pro-border glass-card-hover">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-primary">پلن ۶ ماهه VIP طلایی</h3>
+              <span class="text-[10px] font-bold bg-[#d4af37]/20 text-[#8a7223] px-2 py-0.5 rounded-full">VIP</span>
+            </div>
+            <div class="text-2xl font-extrabold text-primary mb-4">
+              ۲,۲۰۰,۰۰۰ <span class="text-xs font-normal text-on-surface-variant">تومان</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mb-6 leading-relaxed">همراهی کامل تا تحول همه‌جانبه فرم بدنی، سلامتی آزمایشگاهی و تثبیت نهایی.</p>
+            <ul class="space-y-3 text-xs text-on-surface-variant mb-8">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[#d4af37] text-sm">star</span> تماس صوتی مشاوره ماهیانه با متخصص</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[#d4af37] text-sm">star</span> بررسی دقیق آزمایش خون و ویتامین‌ها</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[#d4af37] text-sm">star</span> برنامه تمرین باشگاهی / خانگی پیشرفته</li>
+            </ul>
+          </div>
+          <button onclick="openTelegramOrder('پلن ۶ ماهه VIP طلایی', '۲,۲۰۰,۰۰۰ تومان')" class="w-full bg-[#1b4332] text-white hover:bg-primary py-3 rounded-full text-xs font-bold transition-all shadow-md">
+            سفارش پلن VIP
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-surface/80 border-t border-surface-variant py-12 mt-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-on-surface-variant">
+      <div>
+        <span class="font-bold text-primary text-base block mb-1">احمدی دایت (خوراک آرا)</span>
+        <span>تمامی حقوق برای پلتفرم تغذیه محفوظ است © ۱۴۰۲ - ۱۴۰۳</span>
+      </div>
+      <div class="flex gap-6 font-medium">
+        <a href="index.html" class="hover:text-primary">صفحه اصلی</a>
+        <a href="assessment.html" class="hover:text-primary">ارزیابی هوشمند</a>
+        <a href="dashboard.html" class="hover:text-primary">پنل کاربری</a>
+        <a href="contact.html" class="hover:text-primary">ارتباط با پشتیبانی</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
